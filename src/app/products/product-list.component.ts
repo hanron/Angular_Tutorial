@@ -17,7 +17,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     showImage: boolean = false;
     errorMessage: string = '';
     private _listFilter: string = "";
-    sub: Subscription | undefined;
+    sub!: Subscription; 
 
     get listFilter(): string {
         return this._listFilter;
@@ -50,7 +50,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     } 
 
     ngOnDestroy(): void {
-        this.sub?.unsubscribe();
+        this.sub.unsubscribe();
     }
 
     performFilter(filterBy: string): IProduct[] {
